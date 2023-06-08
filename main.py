@@ -1,7 +1,7 @@
 import os
 from pytube import YouTube
 
-def download_audio_from_youtube():
+def download_and_convert_audio_from_youtube():
     try:
         # Prompt the user to enter YouTube URL, output path, and file format
         youtube_url = input("Enter YouTube URL: ")
@@ -28,7 +28,7 @@ def download_audio_from_youtube():
             print("Audio downloaded successfully!")
 
             # Convert the downloaded audio to MP3 format
-            convert_to_mp3(audio_file)
+            convert_to_mp3_format(audio_file)
         else:
             print("Invalid file format. Please enter either MP4 or MP3.")
             return
@@ -36,11 +36,11 @@ def download_audio_from_youtube():
     except Exception as e:
         print("Error: ", str(e))
 
-def convert_to_mp3(input_file):
+def convert_to_mp3_format(input_file):
     # Get the output file path by replacing the file extension with .mp3
     mp3_file = os.path.splitext(input_file)[0] + ".mp3"
     os.rename(input_file, mp3_file)
     print("Converted to MP3 successfully!")
 
 if __name__ == "__main__":
-    download_audio_from_youtube()
+    download_and_convert_audio_from_youtube()
