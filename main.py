@@ -3,7 +3,7 @@ from pytube import YouTube
 
 def download_and_convert_audio_from_youtube():
     try:
-        # Prompt the user to enter YouTube URL, output path, and file format
+        # Ask the user to enter YouTube URL, output path, and file format
         youtube_url = input("Enter YouTube URL: ")
         output_path = input("Enter export path: ")
         file_format = input("Enter file format (MP4 or MP3): ").lower()
@@ -37,7 +37,7 @@ def download_and_convert_audio_from_youtube():
         print("Error: ", str(e))
 
 def convert_to_mp3_format(input_file):
-    # Get the output file path by replacing the file extension with .mp3
+    # Replace the file extension with .mp3
     mp3_file = os.path.splitext(input_file)[0] + ".mp3"
     os.rename(input_file, mp3_file)
     print("Converted to MP3 successfully!")
